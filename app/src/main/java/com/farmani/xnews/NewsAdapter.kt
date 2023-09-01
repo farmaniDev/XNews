@@ -1,13 +1,15 @@
 package com.farmani.xnews
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
-class NewsAdapter(var newsList: MutableList<News>) :
+class NewsAdapter(var newsList: MutableList<News>, var context: Context) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView
@@ -39,7 +41,8 @@ class NewsAdapter(var newsList: MutableList<News>) :
             title.text = newsList[position].title
             description.text = newsList[position].description
             author.text = newsList[position].author
-            date.text = newsList[position].date
+            date.text = newsList[position].publishedAt
+            Glide.with(context).load(newsList[position].urlToImage).into(cover)
         }
 
     }
