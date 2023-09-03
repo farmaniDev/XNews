@@ -12,7 +12,7 @@ interface API {
     add suspend because we are going to use it in coroutine
      */
     suspend fun getNews(
-        @Query("source") source: String,
+        @Query("sources") source: String,
         @Query("apiKey") apiKey: String
     ): Response<ResponseModel>
 }
