@@ -1,5 +1,6 @@
-package com.farmani.xnews
+package com.farmani.xnews.api
 
+import com.farmani.xnews.model.ResponseModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

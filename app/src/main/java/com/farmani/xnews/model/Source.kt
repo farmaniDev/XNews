@@ -1,4 +1,4 @@
-package com.farmani.xnews
+package com.farmani.xnews.model
 
 data class Source(
     val id: Any,

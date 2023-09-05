@@ -1,4 +1,4 @@
-package com.farmani.xnews
+package com.farmani.xnews.activities
 
 import android.os.Bundle
 import android.util.Log
@@ -6,8 +6,14 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.farmani.xnews.api.API
+import com.farmani.xnews.BuildConfig
+import com.farmani.xnews.model.News
+import com.farmani.xnews.adapter.NewsAdapter
+import com.farmani.xnews.R
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -41,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         val adapter = NewsAdapter(newsList, this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
     }
 
 }
